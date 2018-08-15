@@ -209,9 +209,13 @@ StoreCharAnim:
 #include "grayscale.asm"  ;<- Grayscale Routines
 #include "showtext.asm"   ;<- Display Text (When examining something, etc)
 #include "maps.asm"       ;<- Maps used
-#include "charsprite.asm"    ;<- Player, NPC Sprites
-#include "mapsprite.asm"     ;<- Map sprites
-#include "textwindsprites.asm" ;<- Text, Item Window Sprites
+
+; Player, NPC Sprites
+#include "sprites/characters.asm"
+; Map sprites
+#include "sprites/map.asm"
+;<- Text, Item Window Sprites
+#include "sprites/textwindow.asm"
 
 .end
 

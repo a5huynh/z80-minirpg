@@ -41,8 +41,6 @@ map01:
     .db  8, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6
 
 ; Stubs so this can assemble
-WhiteSpace:
-Border:
 current_map:
 p_posROW:
 p_posCOL:
@@ -51,6 +49,6 @@ LoadMap:
 #include "grayscale.asm"
 #include "mapper.asm"
 #include "routines.asm"
-#include "mapsprite.asm"
-
+#include "sprites/map.asm"
+#include "sprites/textwindow.asm"
 .end

@@ -48,8 +48,17 @@ def _read_data(f: io.BufferedReader, datasize: int) -> bool:
     """
     print('\n-- Data --')
 
+    data_buffer = f.read(datasize)
+    # Read data header
+    data_header = struct.unpack('H H B B 8s H', data_buffer[:16])
+    print(f'Data Header:\t{data_header}')
+
+    # Program start
+    print(f'Program Len:\t{int.from_bytes(data_buffer[16:18], byteorder="little")}')
+    print(f'Program Type:\t0x{data_buffer[18:20].hex()}')
+
     dataChecksum = 0
-    for byte in f.read(datasize):
+    for byte in data_buffer:
         dataChecksum += byte
 
     checksum = f.read(2).hex()

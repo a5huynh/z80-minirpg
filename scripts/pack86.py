@@ -37,11 +37,10 @@ def _write_header(outfile: io.BufferedWriter, datasize: int):
     """
 
     # Pack the signature, **TI86** plus 3 bytes of magic number.
-    out = pack('8sbbb', bytes('**TI86**', 'ascii'), 0x1a, 0x0a, 0x00)
+    out = pack('8s B B B', bytes('**TI86**', 'ascii'), 0x1a, 0x0a, 0x00)
     outfile.write(out)
     # Pack a comment (up to 42 bytes)
-    comment = 'Packed by pack86.py'
-    out = pack('42s', bytes(comment, 'ascii'))
+    out = pack('42s', bytes('Packed by pack86.py', 'ascii'))
     outfile.write(out)
     # Length of program + 16 for the data header + 4 for the program header.
     outfile.write(pack('H', datasize + 16 + 4))

@@ -12,11 +12,11 @@ import sys
 def _read_header(f: io.BufferedReader) -> int:
     """ Reads the header section of the 86p file format.
 
-    Args:
-        f - File buffer
+        Args:
+            f - File buffer
 
-    Returns:
-        int - Size of the data section chunk.
+        Returns:
+            int - Size of the data section chunk.
     """
     print('-- Header --')
 
@@ -38,13 +38,12 @@ def _read_header(f: io.BufferedReader) -> int:
 
 def _read_data(f: io.BufferedReader, datasize: int) -> bool:
     """ Reads the data section of the 86p file format.
+        Args:
+            f - File buffer
+            datasize - Size of the data section chunk
 
-    Args:
-    f - File buffer
-    datasize - Size of the data section chunk
-
-    Returns:
-    bool - whether or not we have any bytes left in the buffer.
+        Returns:
+            bool - whether or not we have any bytes left in the buffer.
     """
     print('\n-- Data --')
 

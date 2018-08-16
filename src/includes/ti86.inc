@@ -60,51 +60,51 @@ _newContext0            equ     40B1h
 _PPutAwayPrompt         equ     40B5h ;put home screen edit away
 _resPromptFlags         equ     40B9h
 _PPutAway               equ     40BDh ;call _cxPPutAway, clear alpha lock
-_call_cxPPutAway	equ 	40BDh ;call _cxPPutAway, clear alpha lock
+_call_cxPPutAway        equ     40BDh ;call _cxPPutAway, clear alpha lock
 _PutAway                equ     40C1h ;call _cxPutAway, clear (PARSEVAR+1), clear alpha lock
-_call_cxPutAway		equ	40C1h ;call _cxPutAway, clear (PARSEVAR+1), clear alpha lock
+_call_cxPutAway	        equ	    40C1h ;call _cxPutAway, clear (PARSEVAR+1), clear alpha lock
 _SizeWind               equ     40C5h ;call _cxSizeWind, test 5,(iy+$01)
-_call_cxSizeWind	equ	40C5h ;call _cxSizeWind, test 5,(iy+$01)
+_call_cxSizeWind        equ	    40C5h ;call _cxSizeWind, test 5,(iy+$01)
 _ErrorEP                equ     40C9h ;call _cxErrorEP
-_call_cxErrorEP		equ	40C9h ;call _cxErrorEP
+_call_cxErrorEP	        equ	    40C9h ;call _cxErrorEP
 _callMain               equ     40CDh ;call _cxMain
-_call_cxMain		equ	40CDh ;call _cxMain
+_call_cxMain            equ	    40CDh ;call _cxMain
 _putAwayNoOp            equ     40D1h
-_cxNull			equ	40D1h
-_p_cxNull		equ	40D2h
+_cxNull                 equ	    40D1h
+_p_cxNull               equ	    40D2h
 _exit                   equ     40D5h
 _clearSolveMode         equ     40D9h
 _monErrHand             equ     40DDh ;default error handler
-_err_handler		equ	40DDh ;default error handler
+_err_handler            equ	    40DDh ;default error handler
 _appInitIfMemx2         equ     40E1h
-_set_cx_100		equ	40E1h
+_set_cx_100	            equ	    40E1h
 _appInitIfMem           equ     40E5h
-_set_cx_50		equ	40E5h
+_set_cx_50              equ	    40E5h
 _appInitIfDec           equ     40E9h
-_set_cx_dec		equ	40E9h
+_set_cx_dec             equ	    40E9h
 _appInit                equ     40EDh ;init the State Monitor with a new set of context vectors
-_set_context		equ	40EDh ;init the State Monitor with a new set of context vectors
+_set_context            equ	    40EDh ;init the State Monitor with a new set of context vectors
 _iINITC                 equ     40F1h
 _iINITCED               equ     40F5h
 _ifQUIT                 equ     40F9h
 _onKeyHandler           equ     40FDh
 _setChecksum            equ     4101h
-_off			equ	4101h ;turn calc off normally
+_off                    equ	    4101h ;turn calc off normally
 _turn86off              equ     4105h ;turn calc off
 _initialize             equ     4109h ;reset calculator
-_reset			equ	4109h ;reset calculator
+_reset                  equ	    4109h ;reset calculator
 _resetdone0             equ     410Dh
 _ResetDone              equ     4111h
 _initMem                equ     4115h
 _INIT_ASAP_RAM          equ     4119h ;remove all user tokens
-_removTok		equ	4119h ;remove all user tokens
+_removTok               equ	    4119h ;remove all user tokens
 _INITGS                 equ     411Dh ;clear _GY1,_GX1,_GR1, fill _GQ1 with $11
 _initlistvar            equ     4121h ;reset list editor
 _setName                equ     4125h ;move byte length string from (ix) to (_OP1+1)
 _warmup                 equ     4129h
 _errAxes                equ     412Dh ;error 35 AXES
 _err1stOrder            equ     4130h ;error 36 FLD-ORDER
-_errFldOrder		equ	4130h ;error 36 FLD-ORDER
+_errFldOrder            equ	    4130h ;error 36 FLD-ORDER
 _errStatPlot            equ     4133h ;error 34 STAT PLOT
 _errOverflow            equ     4136h ;error 01 OVERFLOW
 _errDivBy0              equ     4139h ;error 02 DIV BY 0
@@ -128,7 +128,7 @@ _errInvalid             equ     416Ch ;error 17 INVALID
 _errIllegalNest         equ     416Fh ;error 18 ILLEGAL NEST
 _errBound               equ     4172h ;error 19 BOUND
 _errGraphRange          equ     4175h ;error 20 GRAPH WINDOW
-_errGraphWindow		equ	4175h ;error 20 GRAPH WINDOW
+_errGraphWindow	        equ	    4175h ;error 20 GRAPH WINDOW
 _errZoom                equ     4178h ;error 21 ZOOM
 _errBreak               equ     417Bh ;error 06 BREAK
 _errStat                equ     417Eh ;error 23 STAT
@@ -139,28 +139,28 @@ _errBadGuess            equ     418Ah ;error 29 BAD GUESS
 _errDifEqSetup          equ     418Dh ;error 30 DIF EQ SETUP
 _errPoly                equ     4190h ;error 32 POLY
 _errTolTooSmall         equ     4193h ;error 33 TOL NOT MET
-_errTolNotMet		equ	4193h ;error 33 TOL NOT MET
+_errTolNotMet           equ	    4193h ;error 33 TOL NOT MET
 _errLinkXmit            equ     4196h ;error 37 LINK
-_errLink		equ	4196h ;error 37 LINK
+_errLink                equ	    4196h ;error 37 LINK
 _JError                 equ     4199h ;invoke error message, a = error #
-_errorA			equ	4199h ;invoke error message, a = error #
+_errorAq                equ	    4199h ;invoke error message, a = error #
 _JErrorNo               equ     419Ch ;invoke error message, _ERRNO = error #
-_error			equ	419Ch ;invoke error message, _ERRNO = error #
+_error                  equ	    419Ch ;invoke error message, _ERRNO = error #
 _noErrorEntry           equ     419Fh
 _pushErrorHandler       equ     41A1h ;install error handler HL
-_instError		equ	41A1h ;install error handler HL
+_instError              equ	    41A1h ;install error handler HL
 _popErrorHandler        equ     41A4h ;remove error handler
-_removError		equ	41A4h ;remove error handler
+_removError             equ	    41A4h ;remove error handler
 _C10BNUM1               equ     41A7h ;.db 0100FC10000000000000 (fp 1 cplx)
 _C9BNUM1                equ     41ABh ;.db 00FC10000000000000 (fp 1)
 _C10BNUM0               equ     41AFh ;.db 0100FC00000000000000 (fp 0 cplx)
 _R10NUM0                equ     41B3h ;.db 0000FC00000000000000 (fp 0)
 _SET10BNUM0             equ     41B7h ;fp0 to de
-_ld_de_fp0		equ	41B7h ;fp0 to de
+_ld_de_fp0              equ	    41B7h ;fp0 to de
 _SET10BNUM1             equ     41BBh ;fp1 to de
-_ld_de_fp1		equ	41BBh ;fp1 to de
+_ld_de_fp1              equ	    41BBh ;fp1 to de
 _HLTIMES10              equ     41BFh ;multiply HL by 10
-_mulHL10		equ	41BFh ;multiply HL by 10
+_mulHL10                equ	    41BFh ;multiply HL by 10
 _CKOP1CPLX              equ     41C3h ;check if OP1 is CPLX
 _CKCPLX                 equ     41C7h ;expects type in A
 _CKOP1REAL              equ     41CBh ;check if OP1 is REAL
@@ -195,26 +195,26 @@ _OP6TOOP2               equ     423Bh
 _OP6TOOP1               equ     423Fh
 _OP4TOOP1               equ     4243h
 _OP5TOOP1               equ     4247h
-_OP3TOOP1               equ	424Bh
-_OP4TOOP5               equ	424Fh
-_OP3TOOP5               equ	4253h
-_OP2TOOP5               equ	4257h
-_MOVTOOP5               equ	425Bh
-_OP2TOOP6               equ	425Fh
-_OP1TOOP6               equ	4263h
-_MOVTOOP6               equ	4267h
-_OP1TOOP5               equ	426Bh
-_OP2TOOP1               equ	426Fh
-_MOVTOOP1               equ	4273h
-_MOVREG                 equ	4277h ;move 11 bytes from (hl) to (de)
-_mov11b			equ	4277h ;move 11 bytes at (hl) to (de)
-_MOV10B                 equ	427Bh ;move 10 bytes, (hl) to (de)
-_MOV18                  equ	427Fh ;move 9 bytes, (hl) to (de)
-_mov9b                  equ	4283h ;move 9 bytes, (hl) to (de)
-_mov9b_			equ	4283h ;move 9 bytes at (hl) to (de)
+_OP3TOOP1               equ	    424Bh
+_OP4TOOP5               equ	    424Fh
+_OP3TOOP5               equ	    4253h
+_OP2TOOP5               equ	    4257h
+_MOVTOOP5               equ	    425Bh
+_OP2TOOP6               equ	    425Fh
+_OP1TOOP6               equ	    4263h
+_MOVTOOP6               equ	    4267h
+_OP1TOOP5               equ	    426Bh
+_OP2TOOP1               equ	    426Fh
+_MOVTOOP1               equ	    4273h
+_MOVREG                 equ	    4277h ;move 11 bytes from (hl) to (de)
+_mov11b                 equ	    4277h ;move 11 bytes at (hl) to (de)
+_MOV10B                 equ	    427Bh ;move 10 bytes, (hl) to (de)
+_MOV18                  equ	    427Fh ;move 9 bytes, (hl) to (de)
+_mov9b                  equ	    4283h ;move 9 bytes, (hl) to (de)
+_mov9b_                 equ	    4283h ;move 9 bytes at (hl) to (de)
 _MOV8B                  equ     4287h ;move 8 bytes, (hl) to (de)
 _MOV7B                  equ     428Bh ;move 7 bytes, (hl) to (de)
-_mov7b_			equ	428Fh ;move 7 bytes at (hl) to (de)
+_mov7b_                 equ	    428Fh ;move 7 bytes at (hl) to (de)
 _MOV14                  equ     428Fh ;move 7 bytes, (hl) to (de)
 _MOV6B                  equ     4293h ;move 6 bytes, (hl) to (de)
 _MOV5B                  equ     4297h ;move 5 bytes, (hl) to (de)
@@ -222,7 +222,7 @@ _MOV4B                  equ     429Bh ;move 4 bytes, (hl) to (de)
 _MOV3B                  equ     429Fh ;move 3 bytes, (hl) to (de)
 _MOV2B                  equ     42A3h ;move 2 bytes, (hl) to (de)
 _O2TOO4D16              equ     42A7h
-_op4toop2m		equ	42A7h
+_op4toop2m              equ	    42A7h
 _O1TOO4D16              equ     42ABh
 _O4TOO1D16              equ     42AFh
 _O2TOO1D16              equ     42B3h
@@ -236,7 +236,7 @@ _MOVTOOP3               equ     42CFh
 _OP4TOOP6               equ     42D3h
 _MOV10TOOP1             equ     42D7h
 _MOV10OP1OP2            equ     42DBh
-_mov10toop1op2		equ	42DBh
+_mov10toop1op2          equ	    42DBh
 _MOV10TOOP2             equ     42DFh
 _MOVFROP1               equ     42E3h
 _movfroop1              equ     42E3h
@@ -264,25 +264,25 @@ _SETNUM                 equ     4337h
 _SETNUMA                equ     433Bh
 _SETMANT                equ     433Fh
 _ZERO16D                equ     4343h
-_ld_hl_8z		equ	4343h
+_ld_hl_8z               equ	    4343h
 _SET16A                 equ     4347h
 _ld_hl_8a               equ     4347h
 _SET14A                 equ     434Bh
-_ld_hlplus1_7a		equ	434Bh
+_ld_hlplus1_7a          equ	    434Bh
 _SET14D                 equ     434Fh
-_ld_hl_7a		equ	434Fh
+_ld_hl_7a               equ	    434Fh
 _OP4SET0                equ     4353h
 _OP3SET0                equ     4357h
 _OP2SET0                equ     435Bh
 _OP1SET0                equ     435Fh
 _SETNUM0                equ     4363h
-_ld_hl_fp0		equ	4363h
+_ld_hl_fp0              equ	    4363h
 _ZEROOP1M               equ     4367h
 _ZEROOP1                equ     436Bh
 _ZEROOP2                equ     436Fh
 _ZEROOP3                equ     4373h
 _ZEROOP                 equ     4377h ;11 zeros to (HL)
-_ld_hl_11z		equ	4377h ;11 zeros to (hl)
+_ld_hl_11z              equ	    4377h ;11 zeros to (hl)
 _CLRLP                  equ     437Bh ;B zeros to (HL)
 _ld_hl_bz               equ     437Bh ;B zeros to (HL)
 _SHRCTOACC              equ     437Fh ;high C to low A
@@ -346,7 +346,7 @@ _OP4MD16                equ     4463h
 _OP3MOP1D14             equ     4467h
 _OP1MOP3D14             equ     446Bh
 _OP2EXOP6               equ     446Fh ;swap OP2,OP6
-_ex_op2_op6		equ	446Fh ;swap OP2,OP6
+_ex_op2_op6             equ	    446Fh ;swap OP2,OP6
 _OP5EXOP6               equ     4473h ;swap OP5,OP6
 _ex_op5_op6             equ     4473h ;swap OP5,OP6
 _OP1EXOP5               equ     4477h ;swap OP1,OP5

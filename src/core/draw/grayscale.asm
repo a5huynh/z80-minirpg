@@ -1,25 +1,33 @@
+; How greyscale works
+; -------------------
+; Video memory: $fc00 -> $ffff
+; Graph Memory: _plotScreen ($c9fa) -> $cdf9 (1024 bytes)
+;
+; NOTE: The graph screen has 6 bytes of memory that is reserved for system use
+; that will be saved and restored later.
+;
 
 ;*************************************************************************
 ;* Greyscale Stuff                                                       *
 ;*************************************************************************
 GridPutSprite:
-    push hl                               
-    pop ix               
-    srl d                 
-    rra                
-    and $80                
-    or e                  
+    push hl
+    pop ix
+    srl d
+    rra
+    and $80
+    or e
     ld e,a
-    push de     
-    ld hl,$fc00           
-    add hl,de              
-    ld b,8                
-    ld de,16              
+    push de
+    ld hl,$fc00
+    add hl,de
+    ld b,8
+    ld de,16
 GPS_Loop:
-    ld a,(ix + 0)         
-    ld (hl),a            
-    inc ix               
-    add hl,de           
+    ld a,(ix + 0)
+    ld (hl),a
+    inc ix
+    add hl,de
     djnz GPS_Loop
     ld hl,$ca00
     pop de
@@ -27,15 +35,15 @@ GPS_Loop:
     ld b, 8
     ld de, 16
 GPS_Loop2:
-    ld a,(ix + 0)         
-    ld (hl),a            
-    inc ix               
-    add hl,de           
-    djnz GPS_Loop2          
-    ret                   
+    ld a,(ix + 0)
+    ld (hl),a
+    inc ix
+    add hl,de
+    djnz GPS_Loop2
+    ret
 
 GreyscaleRoutineStart:
-    pop hl                          ;remove the calling routine from the stack - 
+    pop hl                          ;remove the calling routine from the stack -
                                     ;we'll exit the routine in our own code
                                     ;without going through the default OS code
 
@@ -44,7 +52,7 @@ GreyscaleRoutineStart:
     ld hl,GreyMem                   ;hl points to a memory location containing
                                     ;the interrupt counter
 
-    dec (hl)                        ;decrease the interrupt counter... 
+    dec (hl)                        ;decrease the interrupt counter...
     jr z,SetCount3                  ;...and if it's zero goto SetCount3...
     inc hl                          ;...otherwise make hl point to current
                                     ;value of port 0 (port 0 is write only)
@@ -121,4 +129,4 @@ ClearScreen:
   ld bc,1023
   ldir
   ret                             ;return to main program
-   
+

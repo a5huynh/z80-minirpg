@@ -31,7 +31,7 @@ PlayerInfo:
 Items:
     .db 1
     .db 0
-    .dw WoodStaff
+    .dw Staff
     .db 1
 
 ;Item Types
@@ -82,18 +82,18 @@ BBread:
     .dw 2
     .dw 2
 
-CCake:  
+CCake:
     .dw Food
     .dw Cake
     .dw 2
     .dw 5
-    
+
 EnergyPot:
     .dw Potion
     .dw Energy
     .dw 2
     .dw 10
-    
+
 HealthPot:
     .dw Potion
     .dw Health

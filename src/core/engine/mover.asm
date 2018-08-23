@@ -184,7 +184,7 @@ MoveMap:
     call _ldHLind
     call StoreMapStruct
     ;Handles drawing, etc.
-    jp Handler
+    jp GameLoop
 
 ;Moves into a house
 LoadHouse:

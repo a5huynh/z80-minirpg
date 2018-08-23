@@ -109,14 +109,14 @@ SignFound:
 TableAction:
     ld hl,TableText
     call ShowText
-    jp Handler
+    jp GameLoop
     jp key_loop
 
 ;Soldiers only have one examine text
 SoldierAction:
     ld hl,SoldierText
     call ShowText
-    jp Handler
+    jp GameLoop
 
 NPCAction:
     ;Load the Conversation into hl
@@ -127,7 +127,7 @@ NPCAction:
     ;If not jp to key_loop
     jp z,key_loop
     call ShowText
-    jp Handler
+    jp GameLoop
 
 ;Compares DE and BC
 CompareDEBC:

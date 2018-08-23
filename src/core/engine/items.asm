@@ -65,9 +65,12 @@ DrawOptionMenu:
 item_key_loop:
     call waitkey
     cp EXIT
-    jp z,Exit
+    jp z,exit_item_menu
     ;If not any of the keys go back to key_loop
     jr item_key_loop
+
+exit_item_menu:
+    ret
 
 ;=========================
 ;
@@ -105,9 +108,6 @@ DrawItemMenu2:
     bit 3,d                ; check if it's done (e = 8)
     ret nz                 ; return if we're done
     jr DrawItemL           ; jump back to the top of the loop
-
-WhiteSpace:
-Border:
 
 DrawPointer:
     ld hl,pointer
@@ -161,4 +161,3 @@ MenuInfo:
     .db 0   ;<- Pointer Location
 
 cpointer: .db "   ",0
-pointer: .db 5,0

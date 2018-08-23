@@ -1,5 +1,3 @@
-
-
 ShowText:
     ;Save text ptr to be used later.
     push hl

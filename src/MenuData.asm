@@ -70,7 +70,6 @@ MenuOption:
     ld hl,Options
     jp PopulateMenu
 
-Items:
 Weapons:
 Armor:
 Spells:
@@ -78,4 +77,4 @@ Options:
 ;=================
 ;Option Menu Data
 ;=================
-    
+

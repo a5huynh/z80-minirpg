@@ -53,6 +53,9 @@ Exit:
 ; Main game engine
 #include "core/engine/main.asm"
 #include "core/engine/mover.asm"
+#include "core/engine/items.asm"
+#include "MenuData.asm"
+
 #include "core/draw/grayscale.asm"
 #include "action.asm"     ;<- Player Actions (Examine, Lever, etc)
 #include "mapper.asm"     ;<- Draws Map
@@ -69,6 +72,8 @@ Exit:
 #include "assets/sprites/characters.asm"
 ; Map sprites
 #include "assets/sprites/map.asm"
+; Menu sprites
+#include "assets/sprites/menu.asm"
 ; Text, Item Window Sprites
 #include "assets/sprites/textwindow.asm"
 .end

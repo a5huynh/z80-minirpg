@@ -33,7 +33,7 @@ DrawChar2:
     call GridPutSprite
     ret
 
-;Main Key Loop
+; Main Key Loop
 key_loop:
     ;Blocks til key is pressed
     call waitkey
@@ -50,7 +50,13 @@ key_loop:
     jp z,char_right
     cp LF
     jr z,char_left
+    cp ENTER
+    jr z,enter_action
     ;If none of the keys, go back to key_loop
+    jp key_loop
+
+enter_action:
+    call ItemMenu
     jp key_loop
 
 char_up:

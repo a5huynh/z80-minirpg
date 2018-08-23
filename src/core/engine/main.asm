@@ -1,5 +1,3 @@
-#include "../../includes/ti86.inc"
-
 ;=======================================================
 ; GameLoop :: MiniRPG
 ; Description:

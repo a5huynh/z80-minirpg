@@ -37,6 +37,8 @@ ProgStart:
 GameStart:
     call LoadGreyscale
     call ClearScreen
+    ; in core/engine/main.asm
+    call GameLoop
 
 ;Exit Program
 Exit:
@@ -47,9 +49,26 @@ Exit:
 
 #include "MainMenu.asm"
 #include "routines.asm"
-#include "grayscale.asm"
 
-WhiteSpace:
-Border:
+; Main game engine
+#include "core/engine/main.asm"
+#include "core/engine/mover.asm"
+#include "core/draw/grayscale.asm"
+#include "action.asm"     ;<- Player Actions (Examine, Lever, etc)
+#include "mapper.asm"     ;<- Draws Map
+#include "npcroutines.asm";<- Draws, Animates NPCS
+#include "showtext.asm"   ;<- Display Text (When examining something, etc)
 
+; Assets
+; ------------------------------------
+; Player Data (Location, Items, etc)
+#include "assets/playerinfo.asm"
+; Maps used
+#include "assets/maps.asm"
+; Player, NPC Sprites
+#include "assets/sprites/characters.asm"
+; Map sprites
+#include "assets/sprites/map.asm"
+; Text, Item Window Sprites
+#include "assets/sprites/textwindow.asm"
 .end

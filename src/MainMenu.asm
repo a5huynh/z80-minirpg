@@ -6,21 +6,26 @@
 ;
 ;=======================================
 
+; Number of msgs
+NUM_MSG         equ 11
+NUM_ROWS        equ 5
 
-;Number of msgs
-msg_num = 11
+START_Y         equ 10
+PADDING_X       equ 5
+PADDING_Y       equ 9
 
 MainMenu:
-;Initialize Variables
+; Initialize Variables
 init:
     xor a
     ld (scroll_pos),a
 
 title_screen:
-    ;Display title at top
+    ; Display title at top
     call _clrLCD
     ld hl,0
     ld (_curRow),hl
+    ld (_curCol),hl
     ld hl,tTitle
     call _puts
 
@@ -42,42 +47,46 @@ mLoop:
     inc hl
     djnz mLoop
 dml:
-    ld b,8
-    xor c
-    xor d
+    ; Setup the start pixel
+    ld b,START_Y
     push hl
 drawMsgList:
     call _ldHLind
 
-    ;Increment pos
-    inc d
+    ld a,PADDING_X
+    ld (_penCol),a
+    ld a,b
+    ld (_penRow),a
+    call _vputs
 
-    push de
-    call vputs_center
-    pop de
-
-    ;Pop old hl value to hl
+    ; Pop old hl value to hl
     pop hl
-    ;Inc it twice(takes up two bytes of mem?)
+    ; inc twice to get to next address
     inc hl
     inc hl
-    ;Push new value on stack
+    ; Push new value on stack
     push hl
 
-    ld a,10
+    ; Move the pen down to next row
+    ld a,PADDING_Y
     add a,b
     ld b,a
 
-    ;Compare a to 5, if same, don't jump
+    ; Increment pos & check to see if we've hit the maximum number of
+    ; rows we can draw.
+    inc d
     ld a,d
     ;Number of msgs allowed on screen
-    cp 5
+    cp NUM_ROWS
     jr nz,drawMsgList
-    ;Finished with drawing
+    ; Finished with drawing
     pop hl
 
 title_loop:
     call _getkey
+
+    cp kF1
+    jr z,GameStart
 
     cp kExit
     jr z,Exit
@@ -103,7 +112,7 @@ scroll_dn:
     ld a,(scroll_pos)
     ld d,5
     add a,5
-    cp msg_num
+    cp NUM_MSG
     jr z,title_loop
     ld a,(scroll_pos)
     inc a
@@ -113,10 +122,8 @@ scroll_dn:
 ;Scroll position
 scroll_pos: .db 0
 
-
-
 ;Top Title
-tTitle:  .db "       MiniRPG",0
+tTitle:  .db " MiniRPG",0
 ;Bottom Title
 bTitle:  .db " Scroll With Up/Down",0
 

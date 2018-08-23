@@ -1,21 +1,3 @@
-#include "ti86asm.inc"
-
-.org _asm_exec_ram
-
-;For testing reasons
-Progstart:
-    call _runindicoff
-    call LoadGreyscale
-    call ClearScreen
-    jr ItemMenu
-
-;Exit Program
-Exit:
-    call CloseGrey
-    call _clrLCD
-    call _homeUp
-    jp ClearScreen
-
 ;===========================================
 ;
 ; Items :: MiniRPG
@@ -180,11 +162,3 @@ MenuInfo:
 
 cpointer: .db "   ",0
 pointer: .db 5,0
-
-
-#include "grayscale.asm"
-#include "routines.asm"
-#include "MenuData.asm"
-#include "MenuSprite.asm"
-
-.end

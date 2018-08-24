@@ -70,7 +70,7 @@ item_key_loop:
     jr item_key_loop
 
 exit_item_menu:
-    ret
+    call GameLoop
 
 ;=========================
 ;
